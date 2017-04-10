@@ -11,9 +11,6 @@ LAST_INSTALLED=$(dpkg -l | grep "linux-image" \
                | egrep -v 'linux-image-generic|extra|lts' | cut -d"-" -f 4 \
                | tail -n 1)
 
-#echo "RUNNING_KERNEL=${RUNNING_KERNEL}"
-#echo "LAST_INSTALLED=${LAST_INSTALLED}"
-
 if [[ ! ${RUNNING_KERNEL} =~ ${LAST_INSTALLED} ]]; then 
     echo "You're not running last version of the kernel installed on your box !"
     echo "RUNNING_KERNEL=${RUNNING_KERNEL}"
